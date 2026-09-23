@@ -1,12 +1,8 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio / Clínica</title>
-  </head>
-  <body>
-    <h1>Bienvenidos a la Clínica</h1>
-    <p>Esta es la primera pagina hecha con Django.</p>
-  </body>
-</html>
+{% extends "base.html" %} {% block title %}Inicio| Génesis Salud{% endblock %} {% block content %}
+<section class="py-5 hero-genesis">
+  <div class="container py-4">
+    <h1 class="display-5 fw-bold">Donde empieza tu bienestar</h1>
+    <p class="lead">Atencion medica cercana en multiples especialidades. Pedi tu turno online, sin llamadas ni esperas.</p>
+  </div>
+</section>
+{% endblock %}
