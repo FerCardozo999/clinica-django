@@ -1,0 +1,27 @@
+// Base
+@use "base/base";
+
+// Layouts
+@use "layouts/navbar";
+@use "layouts/footer";
+@use "layouts/panel";
+
+// Components
+@use "components/botones";
+@use "components/cards";
+@use "components/formularios";
+@use "components/tablas";
+@use "components/badges";
+@use "components/alertas";
+@use "components/secciones";
+
+// Pages
+@use "pages/inicio";
+@use "pages/nosotros";
+@use "pages/contacto";
+@use "pages/especialidades";
+@use "pages/profesionales";
+@use "pages/novedades";
+@use "pages/cuentas";
+@use "pages/turnos";
+@use "pages/error";

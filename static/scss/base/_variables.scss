@@ -1,0 +1,25 @@
+// Colores
+$color-primario: #0fb5ae;
+$color-primario-claro: #5ce1d6;
+$color-oscuro: #0b2447;
+$color-texto: #334155;
+$color-fondo-suave: #f0fbfa;
+$color-blanco: #ffffff;
+
+// Colores de estado (turnos)
+$color-exito: #16a34a;
+$color-alerta: #f59e0b;
+$color-peligro: #dc2626;
+
+// Degradado
+$degradado-principal: linear-gradient(135deg, $color-primario 0%, $color-primario-claro 100%);
+
+// Tipografia
+$fuente-principal: "Poppins", sans-serif;
+
+// Bordes y Sombras
+$radio-borde: 12px;
+$sombra-suave: 0 4px 20px rgba($color-oscuro, 0.08);
+
+// Transiciones
+$transicion-base: all 0.3s ease;
