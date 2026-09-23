@@ -1,0 +1,27 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Variables de entorno
+.env
+
+# Base de datos local
+db.sqlite3
+
+# Archivos subidos por usuarios
+media/
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Archivos generados por collectstatic (deploy)
+staticfiles/
+
+# Mapas de Sass
+*.css.map
+
+# Configuracion del editor y del sistema
+.vscode/
+Thumbs.db
+.DS_Store
