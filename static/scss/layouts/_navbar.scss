@@ -1,0 +1,28 @@
+@use "../base/variables" as *;
+
+.navbar-genesis {
+    background-color: $color-blanco;
+    box-shadow: $sombra-suave;
+
+
+    .navbar-brand {
+        color: $color-oscuro;
+        font-weight: 700;
+    }
+
+    i {
+        color: $color-primario;
+    }
+
+
+    .nav-link {
+        color: $color-oscuro;
+        font-weight: 500;
+        transition: $transicion-base;
+
+        &:hover,
+        &.active {
+            color: $color-primario
+        }
+    }
+}

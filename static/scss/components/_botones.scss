@@ -1,0 +1,16 @@
+@use "../base/variables" as *;
+
+.btn-genesis{
+    padding: 0.75rem 1.75rem;
+    border-radius: $radio-borde;
+    background-color: $color-oscuro;
+    color: $color-blanco;
+    font-weight: 600;
+    transition: $transicion-base;
+
+    &:hover{
+        background-color: $color-primario;
+        color: $color-blanco;
+        transform: translateY(-2px);
+    }
+}

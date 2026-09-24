@@ -1,0 +1,16 @@
+@use "../base/variables" as *;
+
+.footer-genesis {
+    background-color: $color-oscuro;
+    color: rgba($color-blanco, 0.75);
+
+    &__marca {
+        color: $color-blanco;
+        font-size: 1.1rem;
+        font-weight: 700;
+    
+        i{
+            color: $color-primario-claro;
+        }
+    }
+}

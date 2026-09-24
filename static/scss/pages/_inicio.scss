@@ -1,0 +1,30 @@
+@use "../base/variables" as *;
+
+.hero-inicio {
+    padding-top: 4rem;
+    background: $degradado-principal;
+    overflow: hidden;
+
+    &__subtitulo {
+        color: $color-oscuro;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    &__titulo {
+        color: $color-blanco;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.2;
+    }
+
+    &__texto {
+        color: rgba($color-blanco, 0.9);
+        font-size: 1.1rem;
+    }
+
+    &__imagen {
+        border-radius: $radio-borde $radio-borde 0 0;
+    }
+}

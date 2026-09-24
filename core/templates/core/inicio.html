@@ -1,8 +1,23 @@
-{% extends "base.html" %} {% block title %}Inicio| Génesis Salud{% endblock %} {% block content %}
-<section class="py-5 hero-genesis">
-  <div class="container py-4">
-    <h1 class="display-5 fw-bold">Donde empieza tu bienestar</h1>
-    <p class="lead">Atencion medica cercana en multiples especialidades. Pedi tu turno online, sin llamadas ni esperas.</p>
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %}Inicio| Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="hero-inicio">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 pb-5">
+        <p class="hero-inicio__subtitulo mb-2">Tu clinica de confianza</p>
+        <h1 class="hero-inicio__titulo mb-3">Donde empieza tu bienestar</h1>
+        <p class="hero-inicio__texto mb-4">Atencion medica cercana en multiples especialidades. Pedi tu turno online, sin llamadas ni esperas</p>
+        <a href="#" class="btn btn-genesis">Pedir turno</a>
+      </div>
+
+      <div class="col-lg-6 align-self-end text-center">
+        <img src="{% static 'img/hero-medicos.jpg' %}" alt="Equipo medico de Genesi Salud" class="img-fluid hero-inicio__imagen" />
+      </div>
+    </div>
   </div>
 </section>
 {% endblock %}

@@ -12,3 +12,75 @@ h6 {
   color: #0b2447;
   font-weight: 700;
 }
+
+.navbar-genesis {
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(11, 36, 71, 0.08);
+}
+.navbar-genesis .navbar-brand {
+  color: #0b2447;
+  font-weight: 700;
+}
+.navbar-genesis i {
+  color: #0fb5ae;
+}
+.navbar-genesis .nav-link {
+  color: #0b2447;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.navbar-genesis .nav-link:hover, .navbar-genesis .nav-link.active {
+  color: #0fb5ae;
+}
+
+.footer-genesis {
+  background-color: #0b2447;
+  color: rgba(255, 255, 255, 0.75);
+}
+.footer-genesis__marca {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.footer-genesis__marca i {
+  color: #5ce1d6;
+}
+
+.btn-genesis {
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  background-color: #0b2447;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-genesis:hover {
+  background-color: #0fb5ae;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.hero-inicio {
+  padding-top: 4rem;
+  background: linear-gradient(135deg, #0fb5ae 0%, #5ce1d6 100%);
+  overflow: hidden;
+}
+.hero-inicio__subtitulo {
+  color: #0b2447;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hero-inicio__titulo {
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+}
+.hero-inicio__texto {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+.hero-inicio__imagen {
+  border-radius: 12px 12px 0 0;
+}
