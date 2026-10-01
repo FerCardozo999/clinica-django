@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Profesionales | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="mb-2">Profesionales</h1>
+        <p class="text-muted mb-5">Conocé al equipo médico de Génesis Salud.</p>
+
+        <div class="row g-4">
+            {% for profesional in profesionales %}
+                <div class="col-sm-6 col-lg-4">
+                    {% include "clinica/_tarjeta_profesional.html" %}
+                </div>
+            {% empty %}
+                <p>Todavía no hay profesionales disponibles.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Especialidades | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="mb-2">Especialidades</h1>
+        <p class="text-muted mb-5">Conocé las áreas en las que podemos atenderte.</p>
+
+        <div class="row g-4">
+            {% for especialidad in especialidades%}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
+                            <i class="bi {{ especialidad.icono}} fs-1 text info"></i>
+                            <h2 class="h5 card-title mt-3">{{especialidad.nombre}}</h2>
+                            <p class="card-text text-muted">
+                                {{ especialidad.descripcion | truncatewords:15 }}
+                            </p>
+                            <a href="{% url 'clinica:especialidad_detalle' especialidad.slug %}" class="stretched-link">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Todavia no hay especialidades disponibles.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

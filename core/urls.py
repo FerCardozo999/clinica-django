@@ -1,3 +1,4 @@
+"""URLs de la app core: páginas públicas del sitio."""
 from django.urls import path
 
 from . import views

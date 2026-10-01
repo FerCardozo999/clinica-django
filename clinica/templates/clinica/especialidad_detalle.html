@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ especialidad.nombre }} | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <a href="{% url 'clinica:especialidades' %}" class="d-inline-block mb-4">
+            <i class="bi bi-arrow-left"></i> Volver a especialidades
+        </a>
+
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <i class="bi {{ especialidad.icono }} display-4 text-info"></i>
+            <h1 class="mb-0">{{ especialidad.nombre }}</h1>
+        </div>
+        <div class="lead mb-5">{{ especialidad.descripcion|linebreaks }}</div>
+
+        <h2 class="h4 mb-4">Nuestros profesionales</h2>
+        <div class="row g-4">
+            {% for profesional in profesionales %}
+                <div class="col-md-6 col-lg-4">
+                    {% include "clinica/_tarjeta_profesional.html" %}
+                </div>
+            {% empty %}
+                <p class="text-muted">Próximamente vas a encontrar profesionales en esta especialidad.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

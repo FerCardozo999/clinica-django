@@ -12,12 +12,19 @@
       <div class="collapse navbar-collapse" id="menuPrincipal">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'clinica:especialidades' %}">Especialidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'clinica:profesionales' %}">Profesionales</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'inicio' %}active{% endif %}" href="{% url 'core:inicio' %}">Inicio</a>
           </li>
           <li class="nav-item">
             {# Se conecta a la pagina de turnos #}
-            <a class="btn btn-genesis" href="#">Pedir turnos</a>
+            <a class="btn btn-genesis" href="#">Pedir turno</a>
           </li>
+          
         </ul>
       </div>
     </div>

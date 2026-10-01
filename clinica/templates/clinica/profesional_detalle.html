@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profesional.nombre_completo }} | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <a href="{% url 'clinica:profesionales' %}" class="d-inline-block mb-4">
+            <i class="bi bi-arrow-left"></i> Volver a profesionales
+        </a>
+
+        <div class="row align-items-center g-5">
+            <div class="col-md-4 text-center">
+                {% if profesional.foto %}
+                    <img src="{{ profesional.foto.url }}"
+                         alt="Foto de {{ profesional.nombre_completo }}"
+                         class="img-fluid rounded-4 shadow-sm">
+                {% else %}
+                    <i class="bi bi-person-circle text-secondary" style="font-size: 10rem;"></i>
+                {% endif %}
+            </div>
+
+            <div class="col-md-8">
+                <h1 class="mb-2">{{ profesional }}</h1>
+                <p class="mb-1">
+                    <a href="{% url 'clinica:especialidad_detalle' profesional.especialidad.slug %}">
+                        {{ profesional.especialidad.nombre }}
+                    </a>
+                </p>
+                <p class="text-muted small mb-4">Matrícula: {{ profesional.matricula }}</p>
+
+                {% if profesional.biografia %}
+                    <div class="mb-4">{{ profesional.biografia|linebreaks }}</div>
+                {% endif %}
+
+                {# Se conecta a la página de turnos en el Paso 8 #}
+                <a href="#" class="btn btn-genesis">Pedir turno</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

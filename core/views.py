@@ -1,3 +1,4 @@
+"""Vistas de la app core: páginas públicas de Génesis Salud."""
 from django.shortcuts import render
 
 
