@@ -12,6 +12,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("core.urls")),
     path("", include("clinica.urls")),
+    path("", include("cuentas.urls")),
 ]
 
 if settings.DEBUG:

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Apps propias
     'core',
     'clinica',
+    'cuentas',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,8 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+# Autenticación
+LOGIN_URL = "cuentas:login"
+LOGIN_REDIRECT_URL = "core:inicio"
+LOGOUT_REDIRECT_URL = "core:inicio"

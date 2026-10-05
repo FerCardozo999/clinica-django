@@ -1,0 +1,10 @@
+@use "../base/variables" as *;
+
+// Ficha de un profesional (profesional_detalle.html).
+.profesional-detalle {
+    &__avatar {
+        color: $color-primario-claro;
+        font-size: 10rem;
+        line-height: 1;
+    }
+}

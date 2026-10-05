@@ -1,0 +1,45 @@
+@use "../base/variables" as *;
+
+// Números destacados de la clínica.
+.dato {
+    &__numero {
+        margin-bottom: 0;
+        color: $color-primario;
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    &__texto {
+        margin-bottom: 0;
+        color: $color-oscuro;
+        font-weight: 500;
+    }
+}
+
+// Valores de la clínica.
+.valor {
+    height: 100%;
+    padding: 2rem;
+    border-radius: $radio-borde;
+    background-color: $color-blanco;
+    box-shadow: $sombra-suave;
+    text-align: center;
+
+    &__icono {
+        color: $color-primario;
+        font-size: 2.5rem;
+    }
+
+    &__titulo {
+        margin: 1rem 0 0.5rem;
+        color: $color-oscuro;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    &__texto {
+        margin-bottom: 0;
+        color: $color-texto;
+    }
+}

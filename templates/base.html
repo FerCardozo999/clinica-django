@@ -21,7 +21,10 @@
   <body class="d-flex flex-column min-vh-100">
     {% include "includes/navbar.html" %}
 
-    <main class="flex-grow-1">{% block content %}{% endblock %}</main>
+    <main class="flex-grow-1">
+      {% include "includes/mensajes.html" %}
+      {% block content %}{% endblock %}
+    </main>
 
     {% include "includes/footer.html" %}
 

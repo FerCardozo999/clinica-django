@@ -1,0 +1,24 @@
+@use "../base/variables" as *;
+
+// Menú desplegable del usuario en el navbar.
+.menu-usuario {
+    border: none;
+    border-radius: $radio-borde;
+    box-shadow: $sombra-suave;
+
+    &__item {
+        color: $color-oscuro;
+        transition: $transicion-base;
+
+        &:hover,
+        &:focus {
+            background-color: $color-fondo-suave;
+            color: $color-primario;
+        }
+
+        &:active {
+            background-color: $color-primario;
+            color: $color-blanco;
+        }
+    }
+}

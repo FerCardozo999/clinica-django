@@ -1,0 +1,31 @@
+@use "../base/variables" as *;
+
+// Datos de contacto de la clínica.
+.contacto-info {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+    }
+
+    &__icono {
+        color: $color-primario;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    &__titulo {
+        margin-bottom: 0.15rem;
+        color: $color-oscuro;
+        font-weight: 600;
+    }
+
+    &__texto {
+        margin-bottom: 0;
+        color: $color-texto;
+    }
+}

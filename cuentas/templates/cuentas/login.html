@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Ingresar | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion seccion--suave">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Mi cuenta</p>
+            <h1 class="seccion__titulo">Ingresá a tu cuenta</h1>
+            <p class="seccion__texto">
+                Entrá con tu usuario para pedir turnos y ver tus datos.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-5">
+                <form method="post" class="formulario" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+
+                    {% for error in form.non_field_errors %}
+                        <div class="alerta alerta--error mb-4" role="alert">{{ error }}</div>
+                    {% endfor %}
+
+                    {% for campo in form %}
+                        {% include "includes/campo.html" %}
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-genesis w-100">Ingresar</button>
+                </form>
+
+                <p class="text-center mt-4 mb-0">
+                    ¿Todavía no tenés cuenta?
+                    <a href="{% url 'cuentas:registro' %}">Registrate</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion seccion--suave">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Contacto</p>
+            <h1 class="seccion__titulo">¿En qué podemos ayudarte?</h1>
+            <p class="seccion__texto">
+                Escribinos tu consulta y te respondemos a la brevedad.
+            </p>
+        </div>
+
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <ul class="contacto-info">
+                    <li class="contacto-info__item">
+                        <i class="bi bi-geo-alt contacto-info__icono"></i>
+                        <div>
+                            <p class="contacto-info__titulo">Dirección</p>
+                            <p class="contacto-info__texto">Av. Belgrano 1234, Salta</p>
+                        </div>
+                    </li>
+                    <li class="contacto-info__item">
+                        <i class="bi bi-telephone contacto-info__icono"></i>
+                        <div>
+                            <p class="contacto-info__titulo">Teléfono</p>
+                            <p class="contacto-info__texto">(0387) 555-0100</p>
+                        </div>
+                    </li>
+                    <li class="contacto-info__item">
+                        <i class="bi bi-envelope contacto-info__icono"></i>
+                        <div>
+                            <p class="contacto-info__titulo">Correo</p>
+                            <p class="contacto-info__texto">contacto@genesissalud.com.ar</p>
+                        </div>
+                    </li>
+                    <li class="contacto-info__item">
+                        <i class="bi bi-clock contacto-info__icono"></i>
+                        <div>
+                            <p class="contacto-info__titulo">Horarios</p>
+                            <p class="contacto-info__texto">Lunes a viernes de 8 a 20 h</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-7">
+                <form method="post" class="formulario" novalidate>
+                    {% csrf_token %}
+
+                    {% for campo in form %}
+                        {% include "includes/campo.html" %}
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-genesis">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

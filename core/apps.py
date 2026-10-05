@@ -4,4 +4,5 @@ from django.apps import AppConfig
 
 class CoreConfig(AppConfig):
     """Registra la app core."""
-    name = 'core'
+    name = "core"
+    verbose_name = "Sitio web"

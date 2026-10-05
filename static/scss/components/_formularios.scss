@@ -1,0 +1,58 @@
+@use "../base/variables" as *;
+
+// Caja que contiene un formulario.
+.formulario {
+    padding: 2rem;
+    border-radius: $radio-borde;
+    background-color: $color-blanco;
+    box-shadow: $sombra-suave;
+}
+
+// Campo: etiqueta, control y mensaje de error.
+.campo {
+    margin-bottom: 1.25rem;
+
+    &__etiqueta {
+        display: block;
+        margin-bottom: 0.4rem;
+        color: $color-oscuro;
+        font-weight: 500;
+    }
+
+    &__opcional {
+        color: $color-texto;
+        font-size: 0.85rem;
+        font-weight: 400;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border: 1px solid rgba($color-oscuro, 0.2);
+        border-radius: $radio-borde;
+        color: $color-texto;
+        transition: $transicion-base;
+
+        &:focus {
+            border-color: $color-primario;
+            box-shadow: 0 0 0 4px rgba($color-primario, 0.15);
+            outline: none;
+        }
+    }
+
+    &__error {
+        margin: 0.4rem 0 0;
+        color: $color-peligro;
+        font-size: 0.875rem;
+    }
+
+    &--error {
+        input,
+        textarea,
+        select {
+            border-color: $color-peligro;
+        }
+    }
+}

@@ -14,6 +14,7 @@
 @use "components/badges";
 @use "components/alertas";
 @use "components/secciones";
+@use "components/menu-usuario";
 
 // Pages
 @use "pages/inicio";
@@ -25,3 +26,4 @@
 @use "pages/cuentas";
 @use "pages/turnos";
 @use "pages/error";
+@use "pages/perfil"

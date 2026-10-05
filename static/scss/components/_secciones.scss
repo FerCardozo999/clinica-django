@@ -1,0 +1,36 @@
+@use "../base/variables" as *;
+
+// Sección estándar: bloque con título centrado y contenido debajo.
+.seccion {
+    padding: 5rem 0;
+
+    &--suave {
+        background-color: $color-fondo-suave;
+    }
+
+    &__encabezado {
+        max-width: 600px;
+        margin: 0 auto 3rem;
+        text-align: center;
+    }
+
+    &__etiqueta {
+        margin-bottom: 0.5rem;
+        color: $color-primario;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    &__titulo {
+        margin-bottom: 0.75rem;
+        color: $color-oscuro;
+        font-weight: 700;
+    }
+
+    &__texto {
+        margin-bottom: 0;
+        color: $color-texto;
+    }
+}

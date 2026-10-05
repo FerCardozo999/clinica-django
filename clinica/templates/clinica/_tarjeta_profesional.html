@@ -1,4 +1,4 @@
-<div class="card h-100 shadow-sm border-0 text-center">
+<div class="card card-genesis h-100 text-center">
     <div class="card-body p-4">
         {% if profesional.foto %}
             <img src="{{ profesional.foto.url }}"
@@ -6,12 +6,12 @@
                  class="rounded-circle mb-3 object-fit-cover"
                  width="120" height="120">
         {% else %}
-            <i class="bi bi-person-circle display-1 text-secondary d-block mb-3"></i>
+            <i class="bi bi-person-circle card-genesis__avatar d-block mb-3"></i>
         {% endif %}
 
-        <h3 class="h5 card-title mb-1">{{ profesional }}</h3>
+        <h3 class="h5 card-genesis__titulo mb-1">{{ profesional }}</h3>
         <p class="text-muted small mb-3">{{ profesional.especialidad.nombre }}</p>
         <a href="{% url 'clinica:profesional_detalle' profesional.pk %}"
-           class="stretched-link">Ver perfil</a>
+           class="card-genesis__link stretched-link">Ver perfil</a>
     </div>
 </div>

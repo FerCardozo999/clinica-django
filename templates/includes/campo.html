@@ -1,0 +1,15 @@
+{# Campo de formulario. Recibe la variable "campo". #}
+<div class="campo {% if campo.errors %}campo--error{% endif %}">
+    <label for="{{ campo.id_for_label }}" class="campo__etiqueta">
+        {{ campo.label }}
+        {% if not campo.field.required %}
+            <span class="campo__opcional">(opcional)</span>
+        {% endif %}
+    </label>
+
+    {{ campo }}
+
+    {% for error in campo.errors %}
+        <p class="campo__error">{{ error }}</p>
+    {% endfor %}
+</div>

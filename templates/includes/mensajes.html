@@ -1,0 +1,15 @@
+{# Avisos para la persona.#}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alerta alerta--{{ message.tags }}" role="alert">
+            <div class="container">
+                {% if message.tags == "success" %}
+                    <i class="bi bi-check-circle-fill alerta__icono"></i>
+                {% else %}
+                    <i class="bi bi-exclamation-circle-fill alerta__icono"></i>
+                {% endif %}
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

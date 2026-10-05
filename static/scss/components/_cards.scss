@@ -1,0 +1,38 @@
+@use "../base/variables" as *;
+
+// Card de la marca: especialidades y profesionales.
+.card-genesis {
+    border: 0;
+    border-radius: $radio-borde;
+    box-shadow: $sombra-suave;
+    transition: $transicion-base;
+
+    &:hover {
+        box-shadow: 0 12px 30px rgba($color-oscuro, 0.15);
+        transform: translateY(-6px);
+    }
+
+    &__icono {
+        color: $color-primario;
+        font-size: 2.5rem;
+    }
+
+    &__avatar {
+        color: $color-primario-claro;
+        font-size: 7.5rem;
+        line-height: 1;
+    }
+
+    &__titulo {
+        color: $color-oscuro;
+        font-weight: 600;
+    }
+
+    &__link {
+        font-weight: 600;
+    }
+
+    &:hover &__link {
+        color: $color-oscuro;
+    }
+}

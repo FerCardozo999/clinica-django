@@ -14,3 +14,18 @@ h6 {
     color: $color-oscuro;
     font-weight: 700;
 }
+
+a {
+    color: $color-primario;
+    font-weight: 500;
+    text-decoration: none;
+    transition: $transicion-base;
+
+    &:hover {
+        color: $color-oscuro;
+    }
+}
+
+.texto-primario {
+    color: $color-primario;
+}

@@ -3,7 +3,7 @@
 {% block title %}{{ profesional.nombre_completo }} | Génesis Salud{% endblock %}
 
 {% block content %}
-<section class="py-5">
+<section class="profesional-detalle py-5">
     <div class="container">
         <a href="{% url 'clinica:profesionales' %}" class="d-inline-block mb-4">
             <i class="bi bi-arrow-left"></i> Volver a profesionales
@@ -16,7 +16,7 @@
                          alt="Foto de {{ profesional.nombre_completo }}"
                          class="img-fluid rounded-4 shadow-sm">
                 {% else %}
-                    <i class="bi bi-person-circle text-secondary" style="font-size: 10rem;"></i>
+                    <i class="bi bi-person-circle profesional-detalle__avatar"></i>
                 {% endif %}
             </div>
 
@@ -33,7 +33,7 @@
                     <div class="mb-4">{{ profesional.biografia|linebreaks }}</div>
                 {% endif %}
 
-                {# Se conecta a la página de turnos en el Paso 8 #}
+                {# Se conecta a la página de turnos cuando exista #}
                 <a href="#" class="btn btn-genesis">Pedir turno</a>
             </div>
         </div>

@@ -1,32 +1,79 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-genesis py-3">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="{% url 'core:inicio' %}">
-        <i class="bi bi-heart-pulse-fill me-1"></i>
-        Genesis Salud
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-expand-lg navbar-genesis py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'core:inicio' %}">
+                <i class="bi bi-heart-pulse-fill me-1"></i>
+                Génesis Salud
+            </a>
 
-      <div class="collapse navbar-collapse" id="menuPrincipal">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'clinica:especialidades' %}">Especialidades</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'clinica:profesionales' %}">Profesionales</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {% if request.resolver_match.url_name == 'inicio' %}active{% endif %}" href="{% url 'core:inicio' %}">Inicio</a>
-          </li>
-          <li class="nav-item">
-            {# Se conecta a la pagina de turnos #}
-            <a class="btn btn-genesis" href="#">Pedir turno</a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'inicio' %}active{% endif %}"
+                           href="{% url 'core:inicio' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'especialidad' in request.resolver_match.url_name %}active{% endif %}"
+                           href="{% url 'clinica:especialidades' %}">Especialidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'profesional' in request.resolver_match.url_name %}active{% endif %}"
+                           href="{% url 'clinica:profesionales' %}">Profesionales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}"
+                           href="{% url 'core:nosotros' %}">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}"
+                           href="{% url 'core:contacto' %}">Contacto</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if request.resolver_match.app_name == 'cuentas' %}active{% endif %}"
+                               href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle me-1"></i>
+                                {{ user.first_name|default:user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end menu-usuario">
+                                <li>
+                                    <a class="dropdown-item menu-usuario__item"
+                                       href="{% url 'cuentas:perfil' %}">
+                                        <i class="bi bi-person me-2"></i>Mi perfil
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <form method="post" action="{% url 'cuentas:logout' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="dropdown-item menu-usuario__item">
+                                            <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.resolver_match.app_name == 'cuentas' %}active{% endif %}"
+                               href="{% url 'cuentas:login' %}">Ingresar</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        {# Se conecta a la página de turnos cuando exista #}
+                        <a class="btn btn-genesis" href="#">Pedir turno</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>

@@ -1,0 +1,27 @@
+@use "../base/variables" as *;
+
+// Avisos del sistema de mensajes 
+.alerta {
+    padding: 1rem 0;
+    background-color: $color-oscuro;
+    color: $color-blanco;
+    font-weight: 600;
+    text-align: center;
+
+    &__icono {
+        margin-right: 0.5rem;
+    }
+
+    &--success {
+        background-color: $color-exito;
+    }
+
+    &--warning {
+        background-color: $color-alerta;
+        color: $color-oscuro;
+    }
+
+    &--error {
+        background-color: $color-peligro;
+    }
+}

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Nosotros | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Quiénes somos</p>
+            <h1 class="seccion__titulo">Una clínica cercana, pensada para vos</h1>
+            <p class="seccion__texto">
+                En Génesis Salud creemos que cuidarse tiene que ser simple:
+                profesionales de confianza, atención sin apuros y turnos online.
+            </p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="dato">
+                    <p class="dato__numero">{{ total_especialidades }}</p>
+                    <p class="dato__texto">Especialidades</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dato">
+                    <p class="dato__numero">{{ total_profesionales }}</p>
+                    <p class="dato__texto">Profesionales</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dato">
+                    <p class="dato__numero">24 h</p>
+                    <p class="dato__texto">Turnos online</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="seccion seccion--suave">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Nuestros valores</p>
+            <h2 class="seccion__titulo">Lo que nos mueve</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="valor">
+                    <i class="bi bi-people valor__icono"></i>
+                    <h3 class="valor__titulo">Cercanía</h3>
+                    <p class="valor__texto">
+                        Te atendemos por tu nombre, con tiempo para escucharte
+                        y explicarte cada paso.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="valor">
+                    <i class="bi bi-award valor__icono"></i>
+                    <h3 class="valor__titulo">Profesionalismo</h3>
+                    <p class="valor__texto">
+                        Un equipo matriculado y en formación constante
+                        en cada especialidad.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="valor">
+                    <i class="bi bi-calendar-check valor__icono"></i>
+                    <h3 class="valor__titulo">Simpleza</h3>
+                    <p class="valor__texto">
+                        Pedí tu turno online cuando quieras,
+                        sin llamadas ni filas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'clinica:profesionales' %}" class="btn btn-genesis">
+                Conocé al equipo
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

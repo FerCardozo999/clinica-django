@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Crear cuenta | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion seccion--suave">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Registro</p>
+            <h1 class="seccion__titulo">Creá tu cuenta</h1>
+            <p class="seccion__texto">
+                Con tu cuenta vas a poder pedir turnos online y ver tus datos.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6">
+                <form method="post" class="formulario" novalidate>
+                    {% csrf_token %}
+
+                    {% for campo in form %}
+                        {% include "includes/campo.html" %}
+                    {% endfor %}
+
+                    <p class="small text-muted mb-4">
+                        La contraseña debe tener al menos 8 caracteres
+                        y no puede ser solo números.
+                    </p>
+
+                    <button type="submit" class="btn btn-genesis w-100">Crear cuenta</button>
+                </form>
+
+                <p class="text-center mt-4 mb-0">
+                    ¿Ya tenés cuenta?
+                    <a href="{% url 'cuentas:login' %}">Ingresá</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,60 @@
+@use "../base/variables" as *;
+
+// Ficha con los datos personales de la cuenta.
+.perfil {
+    padding: 2rem;
+    border-radius: $radio-borde;
+    background-color: $color-blanco;
+    box-shadow: $sombra-suave;
+
+    &__cabecera {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba($color-oscuro, 0.1);
+    }
+
+    &__avatar {
+        color: $color-primario;
+        font-size: 3.5rem;
+        line-height: 1;
+    }
+
+    &__nombre {
+        margin-bottom: 0.15rem;
+        color: $color-oscuro;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    &__usuario {
+        margin-bottom: 0;
+        color: $color-texto;
+    }
+
+    &__datos {
+        margin-bottom: 2rem;
+    }
+
+    &__dato {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba($color-oscuro, 0.08);
+    }
+
+    &__etiqueta {
+        color: $color-texto;
+        font-weight: 400;
+    }
+
+    &__valor {
+        margin-bottom: 0;
+        color: $color-oscuro;
+        font-weight: 500;
+        text-align: right;
+    }
+}
