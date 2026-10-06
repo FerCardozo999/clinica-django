@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'core',
     'clinica',
     'cuentas',
+    'turnos',
+    'pacientes',
 ]
 
 MIDDLEWARE = [

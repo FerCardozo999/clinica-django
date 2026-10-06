@@ -37,17 +37,31 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {% if request.resolver_match.app_name == 'cuentas' %}active{% endif %}"
+                            <a class="nav-link dropdown-toggle {% if request.resolver_match.app_name == 'cuentas' or request.resolver_match.app_name == 'pacientes' or request.resolver_match.url_name == 'mis_turnos' %}active{% endif %}"
                                href="#" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-circle me-1"></i>
                                 {{ user.first_name|default:user.username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end menu-usuario">
+                                {% if user.profesional.activo %}
+                                    <li>
+                                        <a class="dropdown-item menu-usuario__item"
+                                           href="{% url 'pacientes:agenda' %}">
+                                            <i class="bi bi-journal-medical me-2"></i>Panel médico
+                                        </a>
+                                    </li>
+                                {% endif %}
                                 <li>
                                     <a class="dropdown-item menu-usuario__item"
                                        href="{% url 'cuentas:perfil' %}">
                                         <i class="bi bi-person me-2"></i>Mi perfil
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item menu-usuario__item"
+                                       href="{% url 'turnos:mis_turnos' %}">
+                                        <i class="bi bi-calendar-check me-2"></i>Mis turnos
                                     </a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
@@ -69,8 +83,7 @@
                     {% endif %}
 
                     <li class="nav-item">
-                        {# Se conecta a la página de turnos cuando exista #}
-                        <a class="btn btn-genesis" href="#">Pedir turno</a>
+                        <a class="btn btn-genesis" href="{% url 'turnos:pedir' %}">Pedir turno</a>
                     </li>
                 </ul>
             </div>

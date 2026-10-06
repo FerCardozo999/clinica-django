@@ -1,0 +1,31 @@
+<article class="turno {% if turno.estado == 'cancelado' %}turno--cancelado{% endif %}">
+    <div class="turno__fecha">
+        <span class="turno__dia">{{ turno.fecha|date:"d" }}</span>
+        <span class="turno__mes">{{ turno.fecha|date:"M" }}</span>
+    </div>
+
+    <div class="turno__detalle">
+        <h3 class="turno__profesional">{{ turno.profesional }}</h3>
+        <p class="turno__dato">
+            {{ turno.profesional.especialidad }} ·
+            {{ turno.fecha|date:"l j \d\e F"|capfirst }} a las {{ turno.hora|time:"H:i" }} h
+        </p>
+        {% if turno.motivo %}
+            <p class="turno__motivo">Motivo: {{ turno.motivo }}</p>
+        {% endif %}
+    </div>
+
+    <div class="turno__acciones">
+        <span class="badge-estado badge-estado--{{ turno.estado }}">
+            {{ turno.get_estado_display }}
+        </span>
+
+        {% if turno.puede_cancelarse %}
+            <form method="post" action="{% url 'turnos:cancelar' turno.pk %}"
+                  onsubmit="return confirm('¿Seguro que querés cancelar este turno?');">
+                {% csrf_token %}
+                <button type="submit" class="turno__cancelar">Cancelar turno</button>
+            </form>
+        {% endif %}
+    </div>
+</article>

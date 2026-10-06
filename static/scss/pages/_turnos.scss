@@ -1,0 +1,113 @@
+@use "../base/variables" as *;
+
+// Listado de turnos del paciente.
+.turnos {
+    &__subtitulo {
+        margin-bottom: 1rem;
+        color: $color-oscuro;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    &__vacio {
+        margin-bottom: 0;
+        padding: 2rem;
+        border-radius: $radio-borde;
+        background-color: $color-blanco;
+        color: $color-texto;
+        text-align: center;
+    }
+}
+
+// Fila de un turno: fecha, detalle y acciones.
+.turno {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: $radio-borde;
+    background-color: $color-blanco;
+    box-shadow: $sombra-suave;
+
+    &--cancelado {
+        opacity: 0.6;
+    }
+
+    &__fecha {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 4.5rem;
+        padding: 0.6rem;
+        border-radius: $radio-borde;
+        background-color: $color-fondo-suave;
+        color: $color-primario;
+        line-height: 1.1;
+    }
+
+    &__dia {
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
+
+    &__mes {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &__detalle {
+        flex-grow: 1;
+    }
+
+    &__profesional {
+        margin-bottom: 0.2rem;
+        color: $color-oscuro;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    &__dato {
+        margin-bottom: 0;
+        color: $color-texto;
+    }
+
+    &__motivo {
+        margin: 0.3rem 0 0;
+        color: $color-texto;
+        font-size: 0.9rem;
+    }
+
+    &__acciones {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.6rem;
+    }
+
+    &__cancelar {
+        padding: 0;
+        border: none;
+        background: none;
+        color: $color-peligro;
+        font-size: 0.9rem;
+        font-weight: 500;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // En celulares, las acciones bajan a un renglón propio.
+    @media (max-width: 575.98px) {
+        flex-wrap: wrap;
+
+        &__acciones {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+}

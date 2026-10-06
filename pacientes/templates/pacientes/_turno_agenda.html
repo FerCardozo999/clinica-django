@@ -1,0 +1,45 @@
+{# Fila de un turno en la agenda del profesional. Recibe la variable "turno". #}
+<article class="turno">
+    <div class="turno__fecha">
+        <span class="agenda__hora">{{ turno.hora|time:"H:i" }}</span>
+        <span class="agenda__dia">{{ turno.fecha|date:"j M" }}</span>
+    </div>
+
+    <div class="turno__detalle">
+        <h3 class="agenda__paciente">
+            <a href="{% url 'pacientes:ficha' turno.paciente.pk %}">
+                {{ turno.paciente.get_full_name|default:turno.paciente.username }}
+            </a>
+        </h3>
+        <p class="turno__dato">
+            {{ turno.fecha|date:"l j \d\e F"|capfirst }}
+            {% if turno.paciente.perfil.obra_social %}
+                · {{ turno.paciente.perfil.obra_social }}
+            {% endif %}
+            {% if turno.paciente.perfil.telefono %}
+                · Tel. {{ turno.paciente.perfil.telefono }}
+            {% endif %}
+        </p>
+        {% if turno.motivo %}
+            <p class="turno__motivo">Motivo: {{ turno.motivo }}</p>
+        {% endif %}
+    </div>
+
+    <form method="post" action="{% url 'pacientes:actualizar_turno' turno.pk %}"
+          class="turno__acciones">
+        {% csrf_token %}
+        <span class="badge-estado badge-estado--{{ turno.estado }}">
+            {{ turno.get_estado_display }}
+        </span>
+
+        {% if turno.estado == 'pendiente' %}
+            <button type="submit" name="accion" value="confirmar"
+                    class="agenda__confirmar">Confirmar</button>
+        {% endif %}
+
+        <button type="submit" name="accion" value="cancelar" class="turno__cancelar"
+                onclick="return confirm('¿Seguro que querés cancelar este turno?');">
+            Cancelar turno
+        </button>
+    </form>
+</article>

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Pedir turno | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion seccion--suave">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Turnos online</p>
+            <h1 class="seccion__titulo">Pedí tu turno</h1>
+            <p class="seccion__texto">
+                Atendemos de lunes a viernes de 8 a 20 h.
+                Elegí profesional, día y horario.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6">
+                <form method="post" class="formulario" novalidate>
+                    {% csrf_token %}
+
+                    {% for campo in form %}
+                        {% include "includes/campo.html" %}
+                    {% endfor %}
+
+                    <div class="d-flex align-items-center gap-4">
+                        <button type="submit" class="btn btn-genesis">Reservar turno</button>
+                        <a href="{% url 'turnos:mis_turnos' %}">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

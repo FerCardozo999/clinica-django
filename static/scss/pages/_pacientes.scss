@@ -1,0 +1,118 @@
+@use "../base/variables" as *;
+
+// Cartel para un listado sin resultados.
+.sin-datos {
+    margin-bottom: 0;
+    padding: 2rem;
+    border-radius: $radio-borde;
+    background-color: $color-blanco;
+    color: $color-texto;
+    text-align: center;
+}
+
+// Fila de un paciente en el listado. Toda la fila es un link a su ficha.
+.paciente {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: $radio-borde;
+    background-color: $color-blanco;
+    box-shadow: $sombra-suave;
+    text-decoration: none;
+    transition: $transicion-base;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &__icono {
+        color: $color-primario;
+        font-size: 2.25rem;
+        line-height: 1;
+    }
+
+    &__detalle {
+        flex-grow: 1;
+    }
+
+    &__nombre {
+        margin-bottom: 0.15rem;
+        color: $color-oscuro;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    &__dato {
+        margin-bottom: 0;
+        color: $color-texto;
+        font-size: 0.9rem;
+    }
+
+    &__flecha {
+        color: $color-primario;
+    }
+}
+
+// Historia clínica: una tarjeta por consulta.
+.historia {
+    &__cabecera {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    &__titulo {
+        margin-bottom: 0;
+        color: $color-oscuro;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    &__entrada {
+        margin-bottom: 1rem;
+        padding: 1.25rem 1.5rem;
+        border-left: 4px solid $color-primario;
+        border-radius: $radio-borde;
+        background-color: $color-blanco;
+        box-shadow: $sombra-suave;
+    }
+
+    &__fecha {
+        margin-bottom: 0.25rem;
+        color: $color-primario;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &__motivo {
+        margin-bottom: 1rem;
+        color: $color-oscuro;
+        font-size: 1.15rem;
+        font-weight: 600;
+    }
+
+    &__etiqueta {
+        margin-bottom: 0.15rem;
+        color: $color-oscuro;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    &__texto {
+        margin-bottom: 1rem;
+        color: $color-texto;
+    }
+
+    &__profesional {
+        margin-bottom: 0;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba($color-oscuro, 0.08);
+        color: $color-texto;
+        font-size: 0.85rem;
+    }
+}

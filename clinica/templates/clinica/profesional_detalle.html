@@ -33,8 +33,8 @@
                     <div class="mb-4">{{ profesional.biografia|linebreaks }}</div>
                 {% endif %}
 
-                {# Se conecta a la página de turnos cuando exista #}
-                <a href="#" class="btn btn-genesis">Pedir turno</a>
+                <a href="{% url 'turnos:pedir' %}?profesional={{ profesional.pk }}"
+                   class="btn btn-genesis">Pedir turno</a>
             </div>
         </div>
     </div>

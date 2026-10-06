@@ -153,6 +153,26 @@ a:hover {
   border-color: #dc2626;
 }
 
+.badge-estado {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: 50rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.badge-estado--pendiente {
+  background-color: #f59e0b;
+  color: #0b2447;
+}
+.badge-estado--confirmado {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+.badge-estado--cancelado {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
 .alerta {
   padding: 1rem 0;
   background-color: #0b2447;
@@ -313,6 +333,101 @@ a:hover {
   line-height: 1;
 }
 
+.turnos__subtitulo {
+  margin-bottom: 1rem;
+  color: #0b2447;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.turnos__vacio {
+  margin-bottom: 0;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #334155;
+  text-align: center;
+}
+
+.turno {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(11, 36, 71, 0.08);
+}
+.turno--cancelado {
+  opacity: 0.6;
+}
+.turno__fecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 4.5rem;
+  padding: 0.6rem;
+  border-radius: 12px;
+  background-color: #f0fbfa;
+  color: #0fb5ae;
+  line-height: 1.1;
+}
+.turno__dia {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.turno__mes {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.turno__detalle {
+  flex-grow: 1;
+}
+.turno__profesional {
+  margin-bottom: 0.2rem;
+  color: #0b2447;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.turno__dato {
+  margin-bottom: 0;
+  color: #334155;
+}
+.turno__motivo {
+  margin: 0.3rem 0 0;
+  color: #334155;
+  font-size: 0.9rem;
+}
+.turno__acciones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+.turno__cancelar {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #dc2626;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.turno__cancelar:hover {
+  text-decoration: underline;
+}
+@media (max-width: 575.98px) {
+  .turno {
+    flex-wrap: wrap;
+  }
+  .turno__acciones {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
 .perfil {
   padding: 2rem;
   border-radius: 12px;
@@ -361,4 +476,132 @@ a:hover {
   color: #0b2447;
   font-weight: 500;
   text-align: right;
+}
+
+.agenda__hora {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.agenda__dia {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.agenda__paciente {
+  margin-bottom: 0.2rem;
+  color: #0b2447;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.agenda__confirmar {
+  padding: 0.35rem 1.1rem;
+  border: none;
+  border-radius: 50rem;
+  background-color: #0b2447;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.agenda__confirmar:hover {
+  background-color: #0fb5ae;
+}
+
+.sin-datos {
+  margin-bottom: 0;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #334155;
+  text-align: center;
+}
+
+.paciente {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(11, 36, 71, 0.08);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.paciente:hover {
+  transform: translateY(-2px);
+}
+.paciente__icono {
+  color: #0fb5ae;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+.paciente__detalle {
+  flex-grow: 1;
+}
+.paciente__nombre {
+  margin-bottom: 0.15rem;
+  color: #0b2447;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.paciente__dato {
+  margin-bottom: 0;
+  color: #334155;
+  font-size: 0.9rem;
+}
+.paciente__flecha {
+  color: #0fb5ae;
+}
+
+.historia__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.historia__titulo {
+  margin-bottom: 0;
+  color: #0b2447;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.historia__entrada {
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #0fb5ae;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(11, 36, 71, 0.08);
+}
+.historia__fecha {
+  margin-bottom: 0.25rem;
+  color: #0fb5ae;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.historia__motivo {
+  margin-bottom: 1rem;
+  color: #0b2447;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.historia__etiqueta {
+  margin-bottom: 0.15rem;
+  color: #0b2447;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.historia__texto {
+  margin-bottom: 1rem;
+  color: #334155;
+}
+.historia__profesional {
+  margin-bottom: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(11, 36, 71, 0.08);
+  color: #334155;
+  font-size: 0.85rem;
 }

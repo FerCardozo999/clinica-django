@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}{{ paciente.get_full_name|default:paciente.username }} | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion seccion--suave">
+    <div class="container">
+        <a href="{% url 'pacientes:lista' %}" class="d-inline-block mb-4">
+            <i class="bi bi-arrow-left"></i> Volver a mis pacientes
+        </a>
+
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="perfil">
+                    <div class="perfil__cabecera">
+                        <i class="bi bi-person-circle perfil__avatar"></i>
+                        <div>
+                            <h1 class="perfil__nombre">
+                                {{ paciente.get_full_name|default:paciente.username }}
+                            </h1>
+                            <p class="perfil__usuario">Paciente</p>
+                        </div>
+                    </div>
+
+                    <dl class="perfil__datos mb-0">
+                        <div class="perfil__dato">
+                            <dt class="perfil__etiqueta">DNI</dt>
+                            <dd class="perfil__valor">
+                                {{ paciente.perfil.dni|default:"Sin cargar" }}
+                            </dd>
+                        </div>
+                        <div class="perfil__dato">
+                            <dt class="perfil__etiqueta">Fecha de nacimiento</dt>
+                            <dd class="perfil__valor">
+                                {{ paciente.perfil.fecha_nacimiento|date:"d/m/Y"|default:"Sin cargar" }}
+                            </dd>
+                        </div>
+                        <div class="perfil__dato">
+                            <dt class="perfil__etiqueta">Obra social</dt>
+                            <dd class="perfil__valor">
+                                {{ paciente.perfil.obra_social|default:"Sin cargar" }}
+                            </dd>
+                        </div>
+                        <div class="perfil__dato">
+                            <dt class="perfil__etiqueta">Teléfono</dt>
+                            <dd class="perfil__valor">
+                                {{ paciente.perfil.telefono|default:"Sin cargar" }}
+                            </dd>
+                        </div>
+                        <div class="perfil__dato">
+                            <dt class="perfil__etiqueta">Correo</dt>
+                            <dd class="perfil__valor text-break">
+                                {{ paciente.email|default:"Sin cargar" }}
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="col-lg-7 historia">
+                <div class="historia__cabecera">
+                    <h2 class="historia__titulo">Historia clínica</h2>
+                    <a href="{% url 'pacientes:nueva_entrada' paciente.pk %}"
+                       class="btn btn-genesis">
+                        <i class="bi bi-plus-lg me-1"></i>Nueva consulta
+                    </a>
+                </div>
+
+                {% for entrada in entradas %}
+                    <article class="historia__entrada">
+                        <p class="historia__fecha">
+                            {{ entrada.fecha|date:"j \d\e F \d\e Y" }}
+                        </p>
+                        <h3 class="historia__motivo">{{ entrada.motivo }}</h3>
+
+                        <p class="historia__etiqueta">Diagnóstico</p>
+                        <p class="historia__texto">
+                            {{ entrada.diagnostico|linebreaksbr }}
+                        </p>
+
+                        {% if entrada.indicaciones %}
+                            <p class="historia__etiqueta">Indicaciones</p>
+                            <p class="historia__texto">
+                                {{ entrada.indicaciones|linebreaksbr }}
+                            </p>
+                        {% endif %}
+
+                        <p class="historia__profesional">
+                            Atendió {{ entrada.profesional }}
+                            · {{ entrada.profesional.especialidad }}
+                        </p>
+                    </article>
+                {% empty %}
+                    <p class="sin-datos">
+                        Este paciente todavía no tiene consultas registradas.
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
