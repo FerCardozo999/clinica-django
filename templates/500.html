@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Error del servidor | Génesis Salud</title>
+        <!-- Página autónoma: se muestra cuando algo falló, así que no depende de base.html ni de main.css. -->
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+                padding: 1.5rem;
+                background-color: #f0fbfa;
+                color: #334155;
+                font-family: "Poppins", Arial, sans-serif;
+                text-align: center;
+            }
+
+            .error {
+                max-width: 600px;
+            }
+
+            .error__marca {
+                margin: 0 0 2rem;
+                color: #0b2447;
+                font-size: 1.1rem;
+                font-weight: 700;
+            }
+
+            .error__etiqueta {
+                margin: 0 0 0.5rem;
+                color: #0fb5ae;
+                font-size: 0.85rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+
+            .error__titulo {
+                margin: 0 0 0.75rem;
+                color: #0b2447;
+                font-size: 2rem;
+            }
+
+            .error__texto {
+                margin: 0 0 2rem;
+            }
+
+            .error__boton {
+                display: inline-block;
+                padding: 0.75rem 1.75rem;
+                border-radius: 12px;
+                background-color: #0b2447;
+                color: #ffffff;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            .error__boton:hover {
+                background-color: #0fb5ae;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="error">
+            <p class="error__marca">Génesis Salud</p>
+            <p class="error__etiqueta">Error 500</p>
+            <h1 class="error__titulo">Tuvimos un problema</h1>
+            <p class="error__texto">
+                Algo falló de nuestro lado y no pudimos mostrar esta página.
+                Probá de nuevo en unos minutos.
+            </p>
+            <a href="/" class="error__boton">Volver al inicio</a>
+        </main>
+    </body>
+</html>
