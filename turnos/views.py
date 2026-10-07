@@ -2,6 +2,7 @@
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError, transaction
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_POST
@@ -32,12 +33,20 @@ def pedir_turno(request):
     if request.method == "POST":
         form = TurnoForm(request.POST, instance=turno)
         if form.is_valid():
-            form.save()
-            messages.success(
-                request,
-                "¡Listo! Tu turno quedó reservado. Te avisamos cuando esté confirmado.",
-            )
-            return redirect("turnos:mis_turnos")
+            try:
+                # Si otra persona reservó el mismo horario entre la validación y
+                # el guardado, la base lo rechaza: se avisa en vez de dar un error 500.
+                with transaction.atomic():
+                    form.save()
+            except IntegrityError:
+                form.add_error(
+                    "hora", "Ese horario ya está ocupado. Probá con otro.")
+            else:
+                messages.success(
+                    request,
+                    "¡Listo! Tu turno quedó reservado. Te avisamos cuando esté confirmado.",
+                )
+                return redirect("turnos:mis_turnos")
     else:
         # Si se llega desde la ficha de un médico, viene elegido en la dirección.
         inicial = {"profesional": request.GET.get("profesional")}

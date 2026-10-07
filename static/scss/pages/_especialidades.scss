@@ -1,0 +1,10 @@
+@use "../base/variables" as *;
+
+// Página de una especialidad (especialidad_detalle.html).
+.especialidad-detalle {
+    &__icono {
+        color: $color-primario;
+        font-size: 3.5rem;
+        line-height: 1;
+    }
+}

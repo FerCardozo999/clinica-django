@@ -1,4 +1,5 @@
 """URLs de la app core: páginas públicas del sitio."""
+
 from django.urls import path
 
 from . import views
@@ -8,5 +9,5 @@ app_name = "core"
 urlpatterns = [
     path("", views.inicio, name="inicio"),
     path("nosotros/", views.nosotros, name="nosotros"),
-    path("contacto/", views.contacto, name="contacto")
+    path("contacto/", views.contacto, name="contacto"),
 ]

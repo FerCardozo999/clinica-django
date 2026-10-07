@@ -21,6 +21,7 @@ class Especialidad(models.Model):
 
     class Meta:
         """Orden y nombres visibles de las especialidades."""
+
         ordering = ["nombre"]
         verbose_name = "especialidad"
         verbose_name_plural = "especialidades"
@@ -57,6 +58,7 @@ class Profesional(models.Model):
 
     class Meta:
         """Orden y nombres visibles de los profesionales."""
+
         ordering = ["apellido", "nombre"]
         verbose_name = "profesional"
         verbose_name_plural = "profesionales"

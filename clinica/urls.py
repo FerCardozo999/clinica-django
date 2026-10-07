@@ -15,7 +15,7 @@ urlpatterns = [
     ),
     path("profesionales/", views.lista_profesionales, name="profesionales"),
     path(
-        "profesionales/<int:pk>",
+        "profesionales/<int:pk>/",
         views.detalle_profesional,
         name="profesional_detalle",
     ),

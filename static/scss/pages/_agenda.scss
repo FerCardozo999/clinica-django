@@ -1,6 +1,6 @@
 @use "../base/variables" as *;
 
-// Agenda del profesional. La fila reutiliza el bloque .turno de _turnos.scss;
+// Agenda del profesional. La fila reutiliza el bloque .turno de _turnos.scss.
 .agenda {
     &__hora {
         font-size: 1.4rem;

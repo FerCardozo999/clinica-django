@@ -7,7 +7,7 @@ from .models import Especialidad, Profesional
 
 @admin.register(Especialidad)
 class EspecialidadAdmin(admin.ModelAdmin):
-    """Panel de especialidades"""
+    """Panel de especialidades: alta, baja y slug automático."""
 
     list_display = ("nombre", "slug", "activa")
     list_editable = ("activa",)

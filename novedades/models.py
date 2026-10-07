@@ -1,4 +1,4 @@
-"""Modelos de la app novedades: notas de salud y noticias de la clinica"""
+"""Modelos de la app novedades: notas de salud y noticias de la clínica."""
 
 from django.conf import settings
 from django.db import models
@@ -7,20 +7,20 @@ from django.utils import timezone
 
 
 class Novedad(models.Model):
-    """Nota que la clinica publica en la seccion Novedades"""
+    """Nota que la clínica publica en la sección Novedades."""
 
-    titulo = models.CharField("titulo", max_length=100)
+    titulo = models.CharField("título", max_length=100)
     slug = models.SlugField(
         max_length=100,
         unique=True,
-        help_text="Se completa solo con el titulo. Es lo que va en la direccion."
+        help_text="Se completa solo con el título. Es lo que va en la dirección.",
     )
     resumen = models.CharField(
         max_length=200,
-        help_text="Una o dos oraciones. Se muestra en las tarjetas del listado."
+        help_text="Una o dos oraciones. Se muestra en las tarjetas del listado.",
     )
     contenido = models.TextField(
-        help_text="Deja un renglon en blanco para separar los parrafos."
+        help_text="Dejá un renglón en blanco para separar los párrafos.",
     )
     imagen = models.ImageField(upload_to="novedades/", blank=True)
     autor = models.ForeignKey(
@@ -29,12 +29,12 @@ class Novedad(models.Model):
         related_name="novedades",
     )
     fecha_publicacion = models.DateField(
-        "fecha de publicacion",
+        "fecha de publicación",
         default=timezone.localdate,
     )
     publicada = models.BooleanField(
         default=True,
-        help_text="destildala para guardar la nota como borrador"
+        help_text="Destildala para guardar la nota como borrador.",
     )
 
     class Meta:
@@ -53,9 +53,9 @@ class Novedad(models.Model):
         )
 
     def get_absolute_url(self):
-        """Devuelve la direccion de la pagina de detalle de la novedad"""
+        """Devuelve la dirección de la página de detalle de la novedad."""
         return reverse("novedades:detalle", kwargs={"slug": self.slug})
 
     def __str__(self):
-        """Devuelve el titulo de la novedad"""
-        return super().__str__()
+        """Devuelve el título de la novedad."""
+        return str(self.titulo)

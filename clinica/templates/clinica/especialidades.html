@@ -11,17 +11,7 @@
         <div class="row g-4">
             {% for especialidad in especialidades %}
                 <div class="col-md-6 col-lg-4">
-                    <div class="card card-genesis h-100">
-                        <div class="card-body p-4">
-                            <i class="bi {{ especialidad.icono}} card-genesis__icono"></i>
-                            <h2 class="h5 card-genesis__titulo mt-3">{{especialidad.nombre}}</h2>
-                            <p class="card-text text-muted">
-                                {{ especialidad.descripcion | truncatewords:15 }}
-                            </p>
-                            <a href="{% url 'clinica:especialidad_detalle' especialidad.slug %}" class="card-genesis__link stretched-link">Ver más <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                    {% include "clinica/_tarjeta_especialidad.html" %}
                 </div>
             {% empty %}
                 <p>Todavía no hay especialidades disponibles.</p>

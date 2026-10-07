@@ -4,13 +4,11 @@
 // Layouts
 @use "layouts/navbar";
 @use "layouts/footer";
-@use "layouts/panel";
 
 // Components
 @use "components/botones";
 @use "components/cards";
 @use "components/formularios";
-@use "components/tablas";
 @use "components/badges";
 @use "components/alertas";
 @use "components/secciones";
@@ -23,9 +21,7 @@
 @use "pages/especialidades";
 @use "pages/profesionales";
 @use "pages/novedades";
-@use "pages/cuentas";
 @use "pages/turnos";
-@use "pages/error";
 @use "pages/perfil";
 @use "pages/agenda";
 @use "pages/pacientes";

@@ -1,4 +1,5 @@
 """URLs principales del proyecto: admin, apps y archivos media."""
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -18,6 +19,6 @@ urlpatterns = [
     path("novedades/", include("novedades.urls")),
 ]
 
+# En el deploy, los archivos subidos los sirve el servidor web, no Django.
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -23,10 +23,6 @@ a:hover {
   color: #0b2447;
 }
 
-.texto-primario {
-  color: #0fb5ae;
-}
-
 .navbar-genesis {
   background-color: #ffffff;
   box-shadow: 0 4px 20px rgba(11, 36, 71, 0.08);
@@ -325,6 +321,12 @@ a:hover {
 .contacto-info__texto {
   margin-bottom: 0;
   color: #334155;
+}
+
+.especialidad-detalle__icono {
+  color: #0fb5ae;
+  font-size: 3.5rem;
+  line-height: 1;
 }
 
 .profesional-detalle__avatar {
