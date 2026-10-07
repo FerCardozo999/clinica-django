@@ -1,0 +1,22 @@
+{# Card de una novedad. Recibe la variable "novedad". #}
+<article class="card card-genesis novedad-card h-100">
+    {% if novedad.imagen %}
+        <img src="{{ novedad.imagen.url }}" alt="" class="novedad-card__imagen">
+    {% else %}
+        <div class="novedad-card__imagen novedad-card__imagen--vacia">
+            <i class="bi bi-newspaper"></i>
+        </div>
+    {% endif %}
+
+    <div class="card-body p-4">
+        <p class="novedad-card__fecha">
+            {{ novedad.fecha_publicacion|date:"j \d\e F \d\e Y" }}
+        </p>
+        <h3 class="h5 card-genesis__titulo">{{ novedad.titulo }}</h3>
+        <p class="card-text text-muted">{{ novedad.resumen }}</p>
+        <a href="{{ novedad.get_absolute_url }}"
+           class="card-genesis__link stretched-link">
+            Leer más <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+</article>

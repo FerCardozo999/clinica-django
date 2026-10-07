@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Novedades | Génesis Salud{% endblock %}
+
+{% block content %}
+<section class="seccion seccion--suave">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Blog</p>
+            <h1 class="seccion__titulo">Novedades</h1>
+            <p class="seccion__texto">
+                Consejos de salud y noticias de la clínica, escritos por nuestro equipo.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            {% for novedad in pagina %}
+                <div class="col-md-6 col-lg-4">
+                    {% include "novedades/_tarjeta_novedad.html" %}
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <p class="sin-datos">Pronto vas a encontrar acá nuestras novedades.</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if pagina.has_other_pages %}
+            <nav class="paginacion" aria-label="Páginas de novedades">
+                {% if pagina.has_previous %}
+                    <a href="?pagina={{ pagina.previous_page_number }}"
+                       class="paginacion__link">
+                        <i class="bi bi-arrow-left"></i> Más nuevas
+                    </a>
+                {% endif %}
+
+                <span class="paginacion__actual">
+                    Página {{ pagina.number }} de {{ pagina.paginator.num_pages }}
+                </span>
+
+                {% if pagina.has_next %}
+                    <a href="?pagina={{ pagina.next_page_number }}"
+                       class="paginacion__link">
+                        Más antiguas <i class="bi bi-arrow-right"></i>
+                    </a>
+                {% endif %}
+            </nav>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

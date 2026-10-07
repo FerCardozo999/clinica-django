@@ -4,14 +4,17 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 
 from clinica.models import Especialidad, Profesional
+from novedades.models import Novedad
 
 from .forms import ContactoForm
 
 
 def inicio(request):
-    """Muestra la página de inicio con las especialidades destacadas."""
-    especialidades = Especialidad.objects.filter(activa=True)[:6]
-    contexto = {"especialidades": especialidades}
+    """Muestra la página de inicio con especialidades y últimas novedades."""
+    contexto = {
+        "especialidades": Especialidad.objects.filter(activa=True)[:6],
+        "novedades": Novedad.publicadas()[:3],
+    }
     return render(request, "core/inicio.html", contexto)
 
 

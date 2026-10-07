@@ -53,4 +53,30 @@
         </div>
     </div>
 </section>
+
+{% if novedades %}
+<section class="seccion">
+    <div class="container">
+        <div class="seccion__encabezado">
+            <p class="seccion__etiqueta">Blog</p>
+            <h2 class="seccion__titulo">Últimas novedades</h2>
+            <p class="seccion__texto">Consejos de salud y noticias de la clínica.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            {% for novedad in novedades %}
+                <div class="col-md-6 col-lg-4">
+                    {% include "novedades/_tarjeta_novedad.html" %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'novedades:lista' %}" class="btn btn-genesis">
+                Ver todas las novedades
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock %}

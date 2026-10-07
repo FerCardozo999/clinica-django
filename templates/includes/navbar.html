@@ -13,7 +13,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="menuPrincipal">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 gap-xxl-3">
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'inicio' %}active{% endif %}"
                            href="{% url 'core:inicio' %}">Inicio</a>
@@ -25,6 +25,10 @@
                     <li class="nav-item">
                         <a class="nav-link {% if 'profesional' in request.resolver_match.url_name %}active{% endif %}"
                            href="{% url 'clinica:profesionales' %}">Profesionales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.app_name == 'novedades' %}active{% endif %}"
+                           href="{% url 'novedades:lista' %}">Novedades</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'nosotros' %}active{% endif %}"
